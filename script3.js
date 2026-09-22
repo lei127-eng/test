@@ -246,7 +246,7 @@ async function init() {
   slides = await Promise.all(slideSources.map(loadTexture));
   render(0);
   updateCaptions(currentIndex);
-  setInterval(() => goTo(1), 4000);
+  setInterval(() => goTo(1), 1000);
 }
 
 document.getElementById('heroNext').addEventListener('click', () => goTo(1));
