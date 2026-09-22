@@ -1,0 +1,15 @@
+*/elem racine plus haut level selecteur de page --bsinfo pas --macouleur car bootstrap utilise déja ça , 
+redef a la racine ecrase la valeur par defaut bootstrap donc partt ou bootstrap utilise --bsinfo j'aurais ma couler*/
+
+:root { --bs-info: #FF6105; }
+
+*/icone bootstrap sont considérer comme des police, webkittextstrole ajoute contour autours lettres et icones */ 
+.icon-thick { font-size: 1.75rem; -webkit-text-stroke: 1px --bs-info; }
+
+.icon-nav { font-size: 1.5rem; }
+.nav-link.active { border-bottom: 3px solid #000; padding-bottom: .35rem; }
+.hero-shader { position: relative; overflow: hidden; }
+#heroCanvas { width: 100%; height: 60vh; display: block; }
+.hero-shader::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 100%); }
+.hero-caption { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; color: var(--bs-info); opacity: 0; transition: opacity .6s; }
+.hero-caption.active { opacity: 1; }

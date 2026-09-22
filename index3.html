@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SITESEGUIER</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Votre CSS perso -->
+  <link href="style3.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+
+  <!-- ========== LOGO : identique sur mobile et desktop ========== -->
+  <div class="text-center py-3">
+    <img src="img/logo.png" alt="Logo SITESEGUIER" style="height:60px;">
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="d-flex justify-content-between align-items-center px-3 py-3">
+
+    <!-- Bloc gauche : burger + panier -->
+    <div class="d-flex align-items-center gap-4">
+      <button class="btn p-0 border-0" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#menuMobile"
+              aria-controls="menuMobile" aria-label="Menu">
+        <i class="bi bi-list icon-thick"></i>
+      </button>
+
+      <a href="#" class="text-dark" aria-label="Panier">
+        <i class="bi bi-basket icon-nav"></i>
+      </a>
+    </div>
+
+    <!-- Nav visible seulement à partir de md (desktop) -->
+    <nav class="d-none d-md-flex gap-4 pb-2 border-bottom border-dark border-2">
+      <a href="#" class="nav-link active text-dark fw-bold text-uppercase">Genre</a>
+      <a href="#" class="nav-link text-dark fw-bold text-uppercase">Artiste</a>
+      <a href="#" class="nav-link text-dark fw-bold text-uppercase">Kits</a>
+      <a href="#" class="nav-link text-dark fw-bold text-uppercase">Feed</a>
+    </nav>
+
+    <!-- Bloc droit : recherche + compte -->
+    <div class="d-flex align-items-center gap-4">
+      <button class="btn p-0 border-0" aria-label="Rechercher">
+        <i class="bi bi-search icon-nav"></i>
+      </button>
+      <button class="btn p-0 border-0" aria-label="Compte">
+        <i class="bi bi-person-fill icon-thick"></i>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- ========== OFFCANVAS : menu burger (mobile) ========== -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="menuMobileLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="d-flex flex-column gap-3">
+        <a href="#" class="nav-link text-dark fw-bold text-uppercase">Genre</a>
+        <a href="#" class="nav-link text-dark fw-bold text-uppercase">Artiste</a>
+        <a href="#" class="nav-link text-dark fw-bold text-uppercase">Kits</a>
+        <a href="#" class="nav-link text-dark fw-bold text-uppercase">Feed</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ========== HERO SHADER SLIDER (WebGL pur, sans librairie) ========== -->
+  <div class="hero-shader">
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-caption active" data-slide="0">
+      <h5 class="fw-bold">Titre slide 1</h5>
+      <p class="d-none d-md-block">Texte descriptif, visible seulement sur desktop.</p>
+    </div>
+    <div class="hero-caption" data-slide="1">
+      <h5 class="fw-bold">Titre slide 2</h5>
+      <p class="d-none d-md-block">Texte descriptif, visible seulement sur desktop.</p>
+    </div>
+    <div class="hero-caption" data-slide="2">
+      <h5 class="fw-bold">Titre slide 3</h5>
+      <p class="d-none d-md-block">Texte descriptif, visible seulement sur desktop.</p>
+    </div>
+
+    <button class="carousel-control-prev" type="button" id="heroPrev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" id="heroNext">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+
+  <!-- Le reste du contenu du site viendra ici -->
+
+  <!-- Scripts : Bootstrap puis votre JS perso (WebGL, aucune librairie externe) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script3.js"></script>
+</body>
+</html>
