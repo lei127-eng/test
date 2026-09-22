@@ -1,7 +1,7 @@
-// ============================================================
+ƒ// ============================================================
 // HERO SHADER SLIDER — transition animée en WebGL pur
 // ============================================================
-// ATTENTION : ceci est un niveau nettement plus avancé que le
+// ATTENTION : ceci est un niveau nettement plus avancé que leƒ
 // reste du site (on sort du HTML/CSS classique). Pas besoin de
 // tout comprendre au mot près — lisez les commentaires comme
 // une carte, pas comme un examen. Aucune librairie externe
@@ -15,7 +15,7 @@ if (!gl) {
 }
 
 // ---- Vos images de slides, dans l'ordre ----
-const slideSources = ['img/image1.jpg', 'img/image2.jpg', 'img/image3.jpg'];
+const slideSources = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
 
 let currentIndex = 0; // slide actuellement affichée
 let nextIndex = 0;    // slide vers laquelle on transitionne
