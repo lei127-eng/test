@@ -1,15 +1,54 @@
-*/elem racine plus haut level selecteur de page --bsinfo pas --macouleur car bootstrap utilise déja ça , 
+/*elem racine plus haut level selecteur de page --bsinfo pas --macouleur car bootstrap utilise dÃ©ja Ã§a , 
 redef a la racine ecrase la valeur par defaut bootstrap donc partt ou bootstrap utilise --bsinfo j'aurais ma couler*/
 
 :root { --bs-info: #FF6105; }
 
-*/icone bootstrap sont considérer comme des police, webkittextstrole ajoute contour autours lettres et icones */ 
-.icon-thick { font-size: 1.75rem; -webkit-text-stroke: 1px --bs-info; }
+/*icone bootstrap sont considÃ©rer comme des police, webkittextstrole ajoute contour autours lettres et icones , 
+var sert a lire variable css */ 
+.icon-thick { font-size: 1.75rem; -webkit-text-stroke: 1px var(--bs-info) ; }
 
+
+
+/*icone panier et recherche effet plus fin que le reste*/
 .icon-nav { font-size: 1.5rem; }
+
+
+
+/*cible lien de navigation qui ont classe navlink et ET la classe active*/
 .nav-link.active { border-bottom: 3px solid #000; padding-bottom: .35rem; }
+
+
+
+/*div englobe canva et et legende. relative il devient la reference a tous les enfants en absolute sinon ils se referent au body
+overflow hidden tous ce qui depasse du conteneur est cut */
 .hero-shader { position: relative; overflow: hidden; }
+
+
+
+/*par defaut le canva met un espace en dessous et display block elimine cet espace   */
 #heroCanvas { width: 100%; height: 60vh; display: block; }
+
+
+/* pseudo element utilisÃ© pour deco, content obligatoire pour l'existence d'un psuedo elem
+absolute se superpose au content    inset:0 raccourcis pour top bottom etc, le pseudo eme rempli tout 
+le .hero shader 
+
+pointer-event: none le pseudo elem est au dessus du canva , grace a Ã§a je peux cliquer element canva et comme si le 
+le pseudo elem n'existait pas */
+/*background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 100%); = dÃ©gradÃ© vertical :
+
+de 0% Ã  50% de la hauteur â†’ transparent (le haut de l'image reste net)
+de 50% Ã  100% â†’ noir Ã  70% d'opacitÃ© (le bas s'assombrit progressivement)*/
 .hero-shader::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 100%); }
+
+
+
+/* hero caption cible les trois bloc legendes et titre
+*/
 .hero-caption { position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2; color: var(--bs-info); opacity: 0; transition: opacity .6s; }
+
+
+
+/*cible avce elem active */ 
+
 .hero-caption.active { opacity: 1; }
