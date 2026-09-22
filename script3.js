@@ -39,8 +39,8 @@ const vertexShaderSource = `
 `;
 
 // Le "fragment shader" calcule la couleur de CHAQUE pixel.
-// C'est ici que se joue l'effet visuel : un léger déplacement
-// en vague (wave), combiné à un fondu (mix) entre les deux images.
+// Effet "morph-x" : les deux images glissent horizontalement
+// en sens opposés pendant la transition, puis se fondent.
 const fragmentShaderSource = `
   precision mediump float;
   varying vec2 vUv;
@@ -57,17 +57,23 @@ const fragmentShaderSource = `
   }
 
   void main() {
-    // L'amplitude de la vague grandit puis redescend pendant la transition
-    float wave = sin(vUv.y * 10.0 + uProgress * 6.2831) * 0.03
-                 * sin(uProgress * 3.14159);
+    // Intensité du morph : monte puis redescend pendant la transition
+    // (0 au début, max au milieu, 0 à la fin) → mouvement fluide
+    float intensity = sin(uProgress * 3.14159) * 0.15;
 
-    vec2 uvFrom = coverUV(vUv + vec2(wave, 0.0), uFromScale);
-    vec2 uvTo   = coverUV(vUv - vec2(wave, 0.0), uToScale);
+    // On décale l'image "from" vers la droite et "to" vers la gauche
+    vec2 uvFrom = vUv + vec2( intensity, 0.0);
+    vec2 uvTo   = vUv + vec2(-intensity, 0.0);
+
+    // Application du "cover" pour éviter la déformation
+    uvFrom = coverUV(uvFrom, uFromScale);
+    uvTo   = coverUV(uvTo, uToScale);
 
     vec4 colFrom = texture2D(uFrom, uvFrom);
     vec4 colTo   = texture2D(uTo, uvTo);
 
-    float p = smoothstep(0.0, 1.0, uProgress); // fondu adouci
+    // Fondu adouci entre les deux
+    float p = smoothstep(0.0, 1.0, uProgress);
     gl_FragColor = mix(colFrom, colTo, p);
   }
 `;
