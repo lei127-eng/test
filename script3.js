@@ -1,7 +1,7 @@
-ƒ// ============================================================
+// ============================================================
 // HERO SHADER SLIDER — transition animée en WebGL pur
 // ============================================================
-// ATTENTION : ceci est un niveau nettement plus avancé que leƒ
+// ATTENTION : ceci est un niveau nettement plus avancé que le
 // reste du site (on sort du HTML/CSS classique). Pas besoin de
 // tout comprendre au mot près — lisez les commentaires comme
 // une carte, pas comme un examen. Aucune librairie externe
