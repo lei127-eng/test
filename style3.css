@@ -39,8 +39,7 @@ le pseudo elem n'existait pas */
 
 de 0% Ã  50% de la hauteur â†’ transparent (le haut de l'image reste net)
 de 50% Ã  100% â†’ noir Ã  70% d'opacitÃ© (le bas s'assombrit progressivement)*/
-.hero-shader::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,.7) 100%); }
-
+.hero-shader::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,.85) 85%, #000 100%); }
 
 
 /* hero caption cible les trois bloc legendes et titre
