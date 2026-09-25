@@ -8,7 +8,7 @@ var sert a lire variable css */
 .icon-thick { font-size: 1.75rem; -webkit-text-stroke: 1px var(--bs-info) ; }
 
 
-
+.nav-link { font-size: 1.25rem; font-family: 'Bebas Neue', cursive; letter-spacing: 1px; text-decoration: none; color: var(--bs-info); transition: all .3s ease-in-out; }
 /*icone panier et recherche effet plus fin que le reste*/
 .icon-nav { font-size: 1.5rem; }
 
