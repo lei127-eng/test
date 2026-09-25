@@ -58,3 +58,10 @@ de 50% Ã  100% â†’ noir Ã  70% d'opacitÃ© (le bas s'assombrit progressi
 /*filtre grain*/
 
 .hero-shader::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .35; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+
+
+.offcanvas-title {
+    margin-bottom: 0;
+    line-height: var(--bs-offcanvas-title-line-height);
+    font-family: 'Bebas Neue', cursive; letter-spacing: 1px; text-decoration: none; color: var(--bs-info); transition: all .3s ease-in-out; }
