@@ -15,7 +15,7 @@ var sert a lire variable css */
 
 
 /*cible lien de navigation qui ont classe navlink et ET la classe active*/
-.nav-link.active { border-bottom: 3px solid #000; padding-bottom: .35rem; }
+.nav-link.active { border-bottom: 3px solid white; padding-bottom: .35rem; }
 
 
 
