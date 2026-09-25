@@ -1,7 +1,7 @@
 /*elem racine plus haut level selecteur de page --bsinfo pas --macouleur car bootstrap utilise dÃ©ja Ã§a , 
 redef a la racine ecrase la valeur par defaut bootstrap donc partt ou bootstrap utilise --bsinfo j'aurais ma couler*/
 
-:root { --bs-info: #FF6105; }
+:root { --bs-info: white; }
 
 /*icone bootstrap sont considÃ©rer comme des police, webkittextstrole ajoute contour autours lettres et icones , 
 var sert a lire variable css */ 
