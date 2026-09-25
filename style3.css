@@ -21,7 +21,7 @@ var sert a lire variable css */
 
 /*div englobe canva et et legende. relative il devient la reference a tous les enfants en absolute sinon ils se referent au body
 overflow hidden tous ce qui depasse du conteneur est cut */
-.hero-shader { position: relative; overflow: hidden; }
+.hero-shader { position: relative; overflow: hidden; font-family: 'Bebas Neue', cursive; letter-spacing: 1px; text-decoration: none; color: var(--bs-info); transition: all .3s ease-in-out; }
 
 
 
