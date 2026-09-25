@@ -50,7 +50,7 @@ de 50% Ã  100% â†’ noir Ã  70% d'opacitÃ© (le bas s'assombrit progressi
 
 /*cible avce elem active */ 
 
-.hero-caption.active { opacity: 1; font-family: 'Bebas Neue', cursive; letter-spacing: 1px; text-decoration: none; color: black; transition: all .3s ease-in-out; }
+.hero-caption.active { opacity: 1; }
 
 
 
