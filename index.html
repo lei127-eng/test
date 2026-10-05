@@ -4,36 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SITESEGUIER</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
   <link href="style3.css" rel="stylesheet">
 </head>
 
-<body class="bg-black">
+<body class="bg-black text-white">
 
-  <div class="text-center py-3">
-    <img src="logov2.png" alt="Logo SITESEGUIER" style="height:60px;">
-  </div>
-
-  <header class="d-flex justify-content-between align-items-center px-3 py-3">
-
+  <!-- ========== HEADER ========== -->
+  <header class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom border-secondary">
     <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0" type="button text-black"
-              data-bs-toggle="offcanvas" data-bs-target="#menuMobile"
-              aria-controls="menuMobile" aria-label="Menu">
+      <button class="btn p-0 border-0 text-white" data-bs-toggle="offcanvas" data-bs-target="#menuMobile" aria-label="Menu">
         <i class="bi bi-list icon-thick"></i>
       </button>
-
-      <a href="#" class="text-white" aria-label="Panier">
-        <i class="bi bi-basket icon-nav"></i>
-      </a>
+      <a href="#" class="text-white" aria-label="Panier"><i class="bi bi-basket icon-nav"></i></a>
     </div>
 
-    <nav class="d-none d-md-flex gap-4 pb-2 border-bottom border-white border-2 ">
+    <a href="#" class="text-decoration-none"><img src="logov2.png" alt="Logo" style="height:60px;"></a>
+
+    <nav class="d-none d-md-flex gap-4">
       <a href="#" class="nav-link active text-white fw-bold text-uppercase">Genre</a>
       <a href="#" class="nav-link text-white fw-bold text-uppercase">Artiste</a>
       <a href="#" class="nav-link text-white fw-bold text-uppercase">Kits</a>
@@ -41,59 +32,192 @@
     </nav>
 
     <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0 text-white" aria-label="Rechercher">
-        <i class="bi bi-search icon-nav"></i>
-      </button>
-      <button class="btn p-0 border-0 text-white" aria-label="Compte">
-        <i class="bi bi-person-fill icon-thick"></i>
-      </button>
+      <button class="btn p-0 border-0 text-white" aria-label="Rechercher"><i class="bi bi-search icon-nav"></i></button>
+      <button class="btn p-0 border-0 text-white" aria-label="Compte"><i class="bi bi-person-fill icon-thick"></i></button>
     </div>
-
   </header>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+  <!-- ========== HERO ========== -->
+  <section class="container py-5 text-center">
+    <h1 class="display-3 fw-bold text-uppercase mb-3" style="font-family:'Bebas Neue';">Le son qui te ressemble</h1>
+    <p class="lead text-secondary mx-auto mb-4" style="max-width:640px;">
+      Des kits, des instrus et des samples pensés pour les artistes qui veulent un son unique.
+    </p>
+    <a href="#" class="btn btn-lg text-uppercase fw-bold px-5" style="background: var(--bs-info); color:#000;">Découvrir les kits</a>
+  </section>
+
+  <!-- ========== 3 BULLETS ========== -->
+  <section class="container py-5">
+    <h2 class="text-uppercase text-center mb-5">Même si tu…</h2>
+    <div class="row g-4 text-center">
+      <div class="col-12 col-md-4">
+        <i class="bi bi-music-note-beamed display-4" style="color:var(--bs-info);"></i>
+        <h3 class="h5 fw-bold mt-3 text-uppercase">Débutes</h3>
+        <p class="text-secondary">On a des kits simples pour bien commencer.</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <i class="bi bi-sliders display-4" style="color:var(--bs-info);"></i>
+        <h3 class="h5 fw-bold mt-3 text-uppercase">Produis déjà</h3>
+        <p class="text-secondary">Des sons pros pour passer au niveau supérieur.</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <i class="bi bi-headphones display-4" style="color:var(--bs-info);"></i>
+        <h3 class="h5 fw-bold mt-3 text-uppercase">Cherches ton style</h3>
+        <p class="text-secondary">Explore par genre et par artiste.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section class="container py-5 border-top border-bottom border-secondary">
+    <div class="row text-center g-4">
+      <div class="col-12 col-md-4">
+        <p class="display-5 fw-bold mb-0" style="color:var(--bs-info);">8000+</p>
+        <p class="text-uppercase text-secondary mb-0">Artistes équipés</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <p class="display-5 fw-bold mb-0" style="color:var(--bs-info);">500+</p>
+        <p class="text-uppercase text-secondary mb-0">Kits disponibles</p>
+      </div>
+      <div class="col-12 col-md-4">
+        <p class="display-5 fw-bold mb-0" style="color:var(--bs-info);">50+</p>
+        <p class="text-uppercase text-secondary mb-0">Genres couverts</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TÉMOIGNAGES ========== -->
+  <section class="container py-5">
+    <h2 class="text-uppercase text-center mb-5">Ils utilisent nos kits</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <blockquote class="border-start border-3 ps-3" style="border-color:var(--bs-info)!important;">
+          <p class="fst-italic">"J'ai trouvé mon son en une semaine."</p>
+          <footer class="text-secondary">— Kofi, beatmaker</footer>
+        </blockquote>
+      </div>
+      <div class="col-12 col-md-4">
+        <blockquote class="border-start border-3 ps-3" style="border-color:var(--bs-info)!important;">
+          <p class="fst-italic">"Les samples sont d'une qualité folle."</p>
+          <footer class="text-secondary">— JC, producteur</footer>
+        </blockquote>
+      </div>
+      <div class="col-12 col-md-4">
+        <blockquote class="border-start border-3 ps-3" style="border-color:var(--bs-info)!important;">
+          <p class="fst-italic">"Enfin des kits qui sonnent pro."</p>
+          <footer class="text-secondary">— Kelsey, artiste</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GRILLE KITS ========== -->
+  <section class="container py-5">
+    <h2 class="text-uppercase text-center mb-5">Nos kits</h2>
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <div class="col">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="image1.jpg" class="card-img-top" alt="Kit 1">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase mb-1">Kit Trap Vol.1</h3>
+            <p class="text-secondary small mb-2">42 samples • 24 loops</p>
+            <p class="fw-bold mb-0" style="color:var(--bs-info);">29€</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="image2.jpg" class="card-img-top" alt="Kit 2">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase mb-1">Kit Drill Vol.2</h3>
+            <p class="text-secondary small mb-2">38 samples • 18 loops</p>
+            <p class="fw-bold mb-0" style="color:var(--bs-info);">29€</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="image3.jpg" class="card-img-top" alt="Kit 3">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase mb-1">Kit Boom Bap</h3>
+            <p class="text-secondary small mb-2">50 samples • 30 loops</p>
+            <p class="fw-bold mb-0" style="color:var(--bs-info);">29€</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card bg-dark text-white border-secondary h-100">
+          <img src="image1.jpg" class="card-img-top" alt="Kit 4">
+          <div class="card-body">
+            <h3 class="h6 fw-bold text-uppercase mb-1">Kit Afrobeat</h3>
+            <p class="text-secondary small mb-2">45 samples • 22 loops</p>
+            <p class="fw-bold mb-0" style="color:var(--bs-info);">29€</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRICING ========== -->
+  <section class="container py-5 border-top border-secondary">
+    <h2 class="text-uppercase text-center mb-5">Choisis ton pack</h2>
+    <div class="row g-4">
+      <div class="col-12 col-md-4">
+        <div class="card bg-dark text-white border-secondary h-100 text-center p-4">
+          <h3 class="h5 fw-bold text-uppercase">Découverte</h3>
+          <p class="display-6 fw-bold" style="color:var(--bs-info);">9€</p>
+          <p class="text-secondary small">1 kit au choix</p>
+          <a href="#" class="btn btn-outline-light mt-auto">Choisir</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card text-white border-0 h-100 text-center p-4" style="background:var(--bs-info); color:#000!important;">
+          <span class="badge bg-dark text-white align-self-center mb-2">Populaire</span>
+          <h3 class="h5 fw-bold text-uppercase">Pack Pro</h3>
+          <p class="display-6 fw-bold">29€</p>
+          <p class="small">3 kits + accès Feed</p>
+          <a href="#" class="btn btn-dark mt-auto">Choisir</a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card bg-dark text-white border-secondary h-100 text-center p-4">
+          <h3 class="h5 fw-bold text-uppercase">Studio</h3>
+          <p class="display-6 fw-bold" style="color:var(--bs-info);">59€</p>
+          <p class="text-secondary small">Tous les kits + Feed à vie</p>
+          <a href="#" class="btn btn-outline-light mt-auto">Choisir</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-top border-secondary py-4 mt-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="text-secondary small mb-0">© 2026 SITESEGUIER — Tous droits réservés</p>
+      <div class="d-flex gap-3">
+        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== OFFCANVAS MENU ========== -->
+  <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="menuMobile">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="menuMobileLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+      <h5 class="offcanvas-title">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
       <nav class="d-flex flex-column gap-3">
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Genre</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Artiste</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Kits</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Feed</a>
+        <a href="#" class="nav-link text-white fw-bold text-uppercase">Genre</a>
+        <a href="#" class="nav-link text-white fw-bold text-uppercase">Artiste</a>
+        <a href="#" class="nav-link text-white fw-bold text-uppercase">Kits</a>
+        <a href="#" class="nav-link text-white fw-bold text-uppercase">Feed</a>
       </nav>
     </div>
   </div>
 
-  <div class="hero-shader">
-    <canvas id="heroCanvas"></canvas>
-
-    <div class="hero-caption active" data-slide="0" justify>
-      <h5 class="fw-bold">Titre slide 1</h5>
-      <p class="d-none d-md-block">Texte descriptif</p>
-    </div>
-    <div class="hero-caption" data-slide="1">
-      <h5 class="fw-bold">Titre slide 2</h5>
-      <p class="d-none d-md-block">Texte descriptif</p>
-    </div>
-    <div class="hero-caption" data-slide="2">
-      <h5 class="fw-bold">Titre slide 3</h5>
-      <p class="d-none d-md-block">Texte descripti</p>
-    </div>
-
-    <button class="carousel-control-prev" type="button" id="heroPrev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Précédent</span>
-    </button>
-    <button class="carousel-control-next" type="button" id="heroNext">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Suivant</span>
-    </button>
-  </div>
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script3.js"></script>
 </body>
 </html>
