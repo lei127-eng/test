@@ -3,97 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SITESEGUIER</title>
+  <title>SITESEGUIER - Archive</title>
+
+  <!-- Bootstrap + Bebas Neue -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
   <link href="style3.css" rel="stylesheet">
 </head>
 
-<body class="bg-black">
+<body class="bg-black text-white">
 
-  <div class="text-center py-3">
-    <img src="logov2.png" alt="Logo SITESEGUIER" style="height:60px;">
-  </div>
-
-  <header class="d-flex justify-content-between align-items-center px-3 py-3">
-
-    <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0" type="button text-black"
-              data-bs-toggle="offcanvas" data-bs-target="#menuMobile"
-              aria-controls="menuMobile" aria-label="Menu">
-        <i class="bi bi-list icon-thick"></i>
-      </button>
-
-      <a href="#" class="text-white" aria-label="Panier">
-        <i class="bi bi-basket icon-nav"></i>
-      </a>
-    </div>
-
-    <nav class="d-none d-md-flex gap-4 pb-2 border-bottom border-white border-2 ">
-      <a href="#" class="nav-link active text-white fw-bold text-uppercase">Genre</a>
-      <a href="#" class="nav-link text-white fw-bold text-uppercase">Artiste</a>
-      <a href="#" class="nav-link text-white fw-bold text-uppercase">Kits</a>
-      <a href="#" class="nav-link text-white fw-bold text-uppercase">Feed</a>
-    </nav>
-
-    <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0 text-white" aria-label="Rechercher">
-        <i class="bi bi-search icon-nav"></i>
-      </button>
-      <button class="btn p-0 border-0 text-white" aria-label="Compte">
-        <i class="bi bi-person-fill icon-thick"></i>
-      </button>
-    </div>
-
+  <!-- ========== HEADER MINIMAL ========== -->
+  <header class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom border-secondary">
+    <a href="index3.html" class="text-decoration-none text-white fw-bold text-uppercase">← Retour</a>
+    <h1 class="h4 mb-0 text-uppercase">Archive</h1>
+    <div style="width: 60px;"></div> <!-- spacer pour centrer le titre -->
   </header>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="menuMobileLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
-    </div>
-    <div class="offcanvas-body">
-      <nav class="d-flex flex-column gap-3">
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Genre</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Artiste</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Kits</a>
-        <a href="#" class="nav-link text-black fw-bold text-uppercase">Feed</a>
-      </nav>
-    </div>
-  </div>
+  <!-- ========== GRILLE D'ARCHIVE ========== -->
+  <main class="container py-5">
+    <h2 class="display-4 fw-bold text-uppercase mb-4" style="font-family:'Bebas Neue';">Past Events</h2>
 
-  <div class="hero-shader">
-    <canvas id="heroCanvas"></canvas>
+    <!-- La grille : 1 colonne sur mobile, 2 sur tablette, 3 sur desktop -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
-    <div class="hero-caption active" data-slide="0" justify>
-      <h5 class="fw-bold">Titre slide 1</h5>
-      <p class="d-none d-md-block">Texte descriptif</p>
-    </div>
-    <div class="hero-caption" data-slide="1">
-      <h5 class="fw-bold">Titre slide 2</h5>
-      <p class="d-none d-md-block">Texte descriptif</p>
-    </div>
-    <div class="hero-caption" data-slide="2">
-      <h5 class="fw-bold">Titre slide 3</h5>
-      <p class="d-none d-md-block">Texte descripti</p>
-    </div>
+      <!-- CARTE D'ÉVÉNEMENT 1 -->
+      <div class="col">
+        <a href="#" class="text-decoration-none text-white d-block">
+          <div class="card bg-dark text-white border-secondary h-100">
+            <img src="image1.jpg" class="card-img-top" alt="Teletech Manchester" style="aspect-ratio: 4/3; object-fit: cover;">
+            <div class="card-body">
+              <p class="text-secondary small mb-1">17.05.2025</p>
+              <h3 class="h5 fw-bold text-uppercase mb-1" style="font-family:'Bebas Neue';">Manchester</h3>
+              <p class="text-secondary small">Warehouse Project</p>
+              <p class="small mb-0">999999999, I Hate Models, Shlømo, Azyr</p>
+            </div>
+          </div>
+        </a>
+      </div>
 
-    <button class="carousel-control-prev" type="button" id="heroPrev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Précédent</span>
-    </button>
-    <button class="carousel-control-next" type="button" id="heroNext">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Suivant</span>
-    </button>
-  </div>
+      <!-- CARTE D'ÉVÉNEMENT 2 -->
+      <div class="col">
+        <a href="#" class="text-decoration-none text-white d-block">
+          <div class="card bg-dark text-white border-secondary h-100">
+            <img src="image2.jpg" class="card-img-top" alt="Teletech Paris" style="aspect-ratio: 4/3; object-fit: cover;">
+            <div class="card-body">
+              <p class="text-secondary small mb-1">12.04.2025</p>
+              <h3 class="h5 fw-bold text-uppercase mb-1" style="font-family:'Bebas Neue';">Paris</h3>
+              <p class="text-secondary small">Le Trabendo</p>
+              <p class="small mb-0">Nico Moreno, Pawlowski, Sikoti, Cloudy</p>
+            </div>
+          </div>
+        </a>
+      </div>
 
+      <!-- CARTE D'ÉVÉNEMENT 3 -->
+      <div class="col">
+        <a href="#" class="text-decoration-none text-white d-block">
+          <div class="card bg-dark text-white border-secondary h-100">
+            <img src="image3.jpg" class="card-img-top" alt="Teletech Amsterdam" style="aspect-ratio: 4/3; object-fit: cover;">
+            <div class="card-body">
+              <p class="text-secondary small mb-1">31.12.2024</p>
+              <h3 class="h5 fw-bold text-uppercase mb-1" style="font-family:'Bebas Neue';">Amsterdam</h3>
+              <p class="text-secondary small">AFAS Live</p>
+              <p class="small mb-0">999999999, DYEN, Novah, Jazzy</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Tu peux copier/coller ce bloc autant de fois que tu as d'événements -->
+      <!-- Chaque carte suit exactement la même structure -->
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="border-top border-secondary py-4 mt-5 text-center">
+    <p class="text-secondary small mb-0">© 2026 SITESEGUIER — Archive</p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script3.js"></script>
 </body>
 </html>
