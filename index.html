@@ -3,214 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SITESEGUIER — Kits & Prods</title>
+  <title>SITESEGUIER</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
   <link href="style3.css" rel="stylesheet">
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black">
 
-  <!-- ========== HEADER ========== -->
-  <header class="d-flex justify-content-between align-items-center px-3 py-3 border-bottom border-secondary">
+  <div class="text-center py-3">
+    <img src="logov2.png" alt="Logo SITESEGUIER" style="height:60px;">
+  </div>
+
+  <header class="d-flex justify-content-between align-items-center px-3 py-3">
 
     <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0 text-white" type="button"
+      <button class="btn p-0 border-0" type="button text-black"
               data-bs-toggle="offcanvas" data-bs-target="#menuMobile"
               aria-controls="menuMobile" aria-label="Menu">
         <i class="bi bi-list icon-thick"></i>
       </button>
-      <a href="#" class="text-white" aria-label="Panier"><i class="bi bi-basket icon-nav"></i></a>
+
+      <a href="#" class="text-white" aria-label="Panier">
+        <i class="bi bi-basket icon-nav"></i>
+      </a>
     </div>
 
-    <a href="#" class="text-decoration-none">
-      <img src="logov2.png" alt="SITESEGUIER" style="height:50px;">
-    </a>
-
-    <nav class="d-none d-md-flex gap-4">
-      <a href="#" class="nav-link active text-white fw-bold text-uppercase">Feed</a>
-      <a href="#" class="nav-link text-white fw-bold text-uppercase">Genre</a>
+    <nav class="d-none d-md-flex gap-4 pb-2 border-bottom border-white border-2 ">
+      <a href="#" class="nav-link active text-white fw-bold text-uppercase">Genre</a>
       <a href="#" class="nav-link text-white fw-bold text-uppercase">Artiste</a>
       <a href="#" class="nav-link text-white fw-bold text-uppercase">Kits</a>
+      <a href="#" class="nav-link text-white fw-bold text-uppercase">Feed</a>
     </nav>
 
     <div class="d-flex align-items-center gap-4">
-      <button class="btn p-0 border-0 text-white" aria-label="Rechercher"><i class="bi bi-search icon-nav"></i></button>
-      <button class="btn p-0 border-0 text-white" aria-label="Compte"><i class="bi bi-person-fill icon-thick"></i></button>
+      <button class="btn p-0 border-0 text-white" aria-label="Rechercher">
+        <i class="bi bi-search icon-nav"></i>
+      </button>
+      <button class="btn p-0 border-0 text-white" aria-label="Compte">
+        <i class="bi bi-person-fill icon-thick"></i>
+      </button>
     </div>
+
   </header>
 
-  <!-- ========== HERO TYPOGRAPHIQUE ========== -->
-  <section class="px-3 py-5 border-bottom border-secondary">
-    <h1 class="display-1 fw-bold text-uppercase lh-1 mb-2">LE SON<br>QUI TE<br>RESSEMBLE.</h1>
-    <p class="text-secondary text-uppercase small mb-4">Kits · Prods · Samples — pour artistes exigeants</p>
-    <a href="#" class="btn btn-light text-uppercase fw-bold px-4 rounded-0">Explorer les kits</a>
-  </section>
-
-  <!-- ========== MARQUEE / BANDEAU ========== -->
-  <section class="border-bottom border-secondary py-2 overflow-hidden">
-    <p class="text-uppercase small mb-0 text-center" style="letter-spacing: .5rem;">
-      NEW DROP · TRAP · DRILL · AFRO · BOOM BAP · NEW DROP · TRAP · DRILL
-    </p>
-  </section>
-
-  <!-- ========== FEED / GRILLE PRODUITS ========== -->
-  <section class="container-fluid px-3 py-5">
-    <div class="d-flex justify-content-between align-items-end mb-4">
-      <h2 class="h3 fw-bold text-uppercase mb-0">Feed</h2>
-      <a href="#" class="text-white small text-uppercase text-decoration-none">Voir tout →</a>
-    </div>
-
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
-
-      <div class="col">
-        <a href="#" class="text-decoration-none text-white">
-          <div class="card bg-black border-secondary rounded-0 h-100">
-            <img src="image1.jpg" class="card-img-top rounded-0" alt="Kit Trap Vol.1">
-            <div class="card-body p-3">
-              <p class="small text-secondary text-uppercase mb-1">Trap · 2026</p>
-              <h3 class="h6 fw-bold text-uppercase mb-2">Kit Trap Vol.1</h3>
-              <p class="small mb-0">29€</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="#" class="text-decoration-none text-white">
-          <div class="card bg-black border-secondary rounded-0 h-100">
-            <img src="image2.jpg" class="card-img-top rounded-0" alt="Kit Drill Vol.2">
-            <div class="card-body p-3">
-              <p class="small text-secondary text-uppercase mb-1">Drill · 2026</p>
-              <h3 class="h6 fw-bold text-uppercase mb-2">Kit Drill Vol.2</h3>
-              <p class="small mb-0">29€</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="#" class="text-decoration-none text-white">
-          <div class="card bg-black border-secondary rounded-0 h-100">
-            <img src="image3.jpg" class="card-img-top rounded-0" alt="Kit Boom Bap">
-            <div class="card-body p-3">
-              <p class="small text-secondary text-uppercase mb-1">Boom Bap · 2026</p>
-              <h3 class="h6 fw-bold text-uppercase mb-2">Kit Boom Bap</h3>
-              <p class="small mb-0">29€</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col">
-        <a href="#" class="text-decoration-none text-white">
-          <div class="card bg-black border-secondary rounded-0 h-100">
-            <img src="image1.jpg" class="card-img-top rounded-0" alt="Kit Afrobeat">
-            <div class="card-body p-3">
-              <p class="small text-secondary text-uppercase mb-1">Afro · 2026</p>
-              <h3 class="h6 fw-bold text-uppercase mb-2">Kit Afrobeat</h3>
-              <p class="small mb-0">29€</p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========== GENRES ========== -->
-  <section class="border-top border-secondary py-5">
-    <div class="container-fluid px-3">
-      <h2 class="h3 fw-bold text-uppercase mb-4">Par genre</h2>
-      <div class="d-flex flex-wrap gap-2">
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">Trap</a>
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">Drill</a>
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">Afro</a>
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">Boom Bap</a>
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">RnB</a>
-        <a href="#" class="btn btn-outline-light rounded-0 text-uppercase">Lo-Fi</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== ARTISTES ========== -->
-  <section class="border-top border-secondary py-5">
-    <div class="container-fluid px-3">
-      <h2 class="h3 fw-bold text-uppercase mb-4">Par artiste</h2>
-      <div class="row row-cols-2 row-cols-md-4 g-3">
-        <div class="col">
-          <a href="#" class="text-decoration-none text-white text-center d-block">
-            <div class="ratio ratio-1x1 bg-secondary mb-2"></div>
-            <p class="small text-uppercase mb-0">Kofi</p>
-          </a>
-        </div>
-        <div class="col">
-          <a href="#" class="text-decoration-none text-white text-center d-block">
-            <div class="ratio ratio-1x1 bg-secondary mb-2"></div>
-            <p class="small text-uppercase mb-0">JC</p>
-          </a>
-        </div>
-        <div class="col">
-          <a href="#" class="text-decoration-none text-white text-center d-block">
-            <div class="ratio ratio-1x1 bg-secondary mb-2"></div>
-            <p class="small text-uppercase mb-0">Kelsey</p>
-          </a>
-        </div>
-        <div class="col">
-          <a href="#" class="text-decoration-none text-white text-center d-block">
-            <div class="ratio ratio-1x1 bg-secondary mb-2"></div>
-            <p class="small text-uppercase mb-0">Ben</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== NEWSLETTER ========== -->
-  <section class="border-top border-secondary py-5">
-    <div class="container-fluid px-3">
-      <h2 class="h3 fw-bold text-uppercase mb-3">Rejoins le feed</h2>
-      <p class="text-secondary small text-uppercase mb-4">Nouveaux drops, promos, exclus — direct dans ta boîte.</p>
-      <form class="row g-2" style="max-width:480px;">
-        <div class="col-8">
-          <input type="email" class="form-control rounded-0 bg-black text-white border-secondary" placeholder="ton@email.com">
-        </div>
-        <div class="col-4">
-          <button class="btn btn-light rounded-0 w-100 text-uppercase fw-bold">OK</button>
-        </div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="border-top border-secondary py-4">
-    <div class="container-fluid px-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-      <p class="small text-secondary text-uppercase mb-0">© 2026 SITESEGUIER</p>
-      <div class="d-flex gap-4">
-        <a href="#" class="text-white text-uppercase small text-decoration-none">Mentions</a>
-        <a href="#" class="text-white text-uppercase small text-decoration-none">CGV</a>
-        <a href="#" class="text-white text-uppercase small text-decoration-none">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ========== OFFCANVAS MENU ========== -->
-  <div class="offcanvas offcanvas-start bg-black text-white border-end border-secondary" tabindex="-1" id="menuMobile">
-    <div class="offcanvas-header border-bottom border-secondary">
-      <h5 class="offcanvas-title text-uppercase">Menu</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuMobile" aria-labelledby="menuMobileLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="menuMobileLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
     </div>
     <div class="offcanvas-body">
       <nav class="d-flex flex-column gap-3">
-        <a href="#" class="nav-link text-white fw-bold text-uppercase">Feed</a>
-        <a href="#" class="nav-link text-white fw-bold text-uppercase">Genre</a>
-        <a href="#" class="nav-link text-white fw-bold text-uppercase">Artiste</a>
-        <a href="#" class="nav-link text-white fw-bold text-uppercase">Kits</a>
+        <a href="#" class="nav-link text-black fw-bold text-uppercase">Genre</a>
+        <a href="#" class="nav-link text-black fw-bold text-uppercase">Artiste</a>
+        <a href="#" class="nav-link text-black fw-bold text-uppercase">Kits</a>
+        <a href="#" class="nav-link text-black fw-bold text-uppercase">Feed</a>
       </nav>
     </div>
   </div>
 
+  <div class="hero-shader">
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-caption active" data-slide="0" justify>
+      <h5 class="fw-bold">Titre slide 1</h5>
+      <p class="d-none d-md-block">Texte descriptif</p>
+    </div>
+    <div class="hero-caption" data-slide="1">
+      <h5 class="fw-bold">Titre slide 2</h5>
+      <p class="d-none d-md-block">Texte descriptif</p>
+    </div>
+    <div class="hero-caption" data-slide="2">
+      <h5 class="fw-bold">Titre slide 3</h5>
+      <p class="d-none d-md-block">Texte descripti</p>
+    </div>
+
+    <button class="carousel-control-prev" type="button" id="heroPrev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" id="heroNext">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script3.js"></script>
 </body>
 </html>
