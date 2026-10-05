@@ -49,7 +49,6 @@ const fragmentShaderSource = `
   uniform float uProgress;
   uniform vec2 uFromScale;
   uniform vec2 uToScale;
-  uniform float uStrength;   // ← intensité du warp (0.1 = discret)
 
   vec2 coverUV(vec2 uv, vec2 scale) {
     return (uv - 0.5) * scale + 0.5;
@@ -62,22 +61,14 @@ const fragmentShaderSource = `
     return texture2D(uTo, coverUV(p, uToScale));
   }
 
-  // --- code de paniq (MIT), adapté pour utiliser uStrength ---
-  vec4 transition(vec2 p) {
-    vec4 ca = getFromColor(p);
-    vec4 cb = getToColor(p);
-
-    vec2 oa = (((ca.rg + ca.b) * 0.5) * 2.0 - 1.0);
-    vec2 ob = (((cb.rg + cb.b) * 0.5) * 2.0 - 1.0);
-    vec2 oc = mix(oa, ob, 0.5) * uStrength;
-
-    float w0 = uProgress;
-    float w1 = 1.0 - w0;
-    return mix(getFromColor(p + oc * w0), getToColor(p - oc * w1), uProgress);
-  }
-
   void main() {
-    gl_FragColor = transition(vUv);
+    vec2 p = vUv;
+    float x = smoothstep(0.0, 1.0, uProgress * 2.0 + p.y - 1.0);
+    gl_FragColor = mix(
+      getFromColor((p - 0.5) * (1.0 - x) + 0.5),
+      getToColor((p - 0.5) * x + 0.5),
+      x
+    );
   }
 `;
 
