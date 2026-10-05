@@ -1,13 +1,6 @@
 // ============================================================
-// HERO SHADER SLIDER — transition CROSSWARP (paniq, MIT)
+// HERO SHADER SLIDER — Transition par Displacement Map
 // ============================================================
-// Le shader utilise exactement la même interface que ton ancien :
-// - uFrom / uTo       : les deux textures à mélanger
-// - uProgress         : avancement 0.0 → 1.0
-// - uFromScale/uToScale : gestion du "cover" (object-fit: cover)
-//
-// La transition vient de paniq (licence MIT) :
-// https://github.com/gl-transitions/gl-transitions/blob/master/transitions/crosswarp.glsl
 
 const canvas = document.getElementById('heroCanvas');
 const gl = canvas.getContext('webgl');
@@ -16,19 +9,23 @@ if (!gl) {
   console.error("WebGL n'est pas supporté par ce navigateur.");
 }
 
-// ---- Vos images de slides, dans l'ordre ----
+// Tes images de slides
 const slideSources = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+
+// ⚠️ AJOUT : La carte de déplacement. Tu dois fournir une image (ex: 512x512)
+// Un motif de bruit ou une texture avec des dégradés fonctionne bien.
+const displacementSource = 'displacement.jpg'; 
 
 let currentIndex = 0;
 let nextIndex = 0;
 let slides = [];
+let dispTexture = null; // Pour stocker la texture de déplacement
 let animating = false;
 
 // ------------------------------------------------------------
 // 1) LES SHADERS
 // ------------------------------------------------------------
 
-// Vertex shader : rectangle plein écran (inchangé)
 const vertexShaderSource = `
   attribute vec2 aPosition;
   varying vec2 vUv;
@@ -38,15 +35,15 @@ const vertexShaderSource = `
   }
 `;
 
-// Fragment shader : CROSSWARP de paniq (adapté à ton interface)
-// - la force du warp est réglable via la constante STRENGTH plus bas
-// - on garde la gestion "cover" de ton ancien shader
+// Fragment shader : Displacement Map (inspiré de Codrops)
 const fragmentShaderSource = `
   precision mediump float;
   varying vec2 vUv;
   uniform sampler2D uFrom;
   uniform sampler2D uTo;
+  uniform sampler2D uDisp; // La carte de déplacement
   uniform float uProgress;
+  uniform float uStrength;
   uniform vec2 uFromScale;
   uniform vec2 uToScale;
 
@@ -54,21 +51,15 @@ const fragmentShaderSource = `
     return (uv - 0.5) * scale + 0.5;
   }
 
-  vec4 getFromColor(vec2 p) {
-    return texture2D(uFrom, coverUV(p, uFromScale));
-  }
-  vec4 getToColor(vec2 p) {
-    return texture2D(uTo, coverUV(p, uToScale));
-  }
-
   void main() {
-    vec2 p = vUv;
-    float x = smoothstep(0.0, 1.0, uProgress * 2.0 + p.y - 1.0);
-    gl_FragColor = mix(
-      getFromColor((p - 0.5) * (1.0 - x) + 0.5),
-      getToColor((p - 0.5) * x + 0.5),
-      x
-    );
+    vec4 disp = texture2D(uDisp, vUv);
+    vec2 uvFrom = vUv + vec2(disp.r * uStrength * uProgress, 0.0);
+    vec2 uvTo = vUv - vec2(disp.r * uStrength * (1.0 - uProgress), 0.0);
+    
+    vec4 colFrom = texture2D(uFrom, coverUV(uvFrom, uFromScale));
+    vec4 colTo = texture2D(uTo, coverUV(uvTo, uToScale));
+    
+    gl_FragColor = mix(colFrom, colTo, uProgress);
   }
 `;
 
@@ -112,31 +103,27 @@ gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0);
 // Uniforms
 const uFrom = gl.getUniformLocation(program, 'uFrom');
 const uTo = gl.getUniformLocation(program, 'uTo');
+const uDisp = gl.getUniformLocation(program, 'uDisp'); // ← AJOUT
 const uProgress = gl.getUniformLocation(program, 'uProgress');
 const uFromScale = gl.getUniformLocation(program, 'uFromScale');
 const uToScale = gl.getUniformLocation(program, 'uToScale');
-const uStrength = gl.getUniformLocation(program, 'uStrength');   // ← nouveau
+const uStrength = gl.getUniformLocation(program, 'uStrength');
 
 // ------------------------------------------------------------
-// 4) CHARGEMENT DES IMAGES
+// 4) CHARGEMENT DES IMAGES (avec gestion de la carte de déplacement)
 // ------------------------------------------------------------
-// 2 corrections par rapport à ton code d'origine :
-//   - UNPACK_FLIP_Y_WEBGL → règle le problème des images à l'envers
-//   - TEXTURE_MAG_FILTER → évite le flou moche quand l'image est zoomée
 function loadTexture(src) {
   return new Promise((resolve) => {
     const image = new Image();
     image.onload = () => {
       const texture = gl.createTexture();
       gl.bindTexture(gl.TEXTURE_2D, texture);
-
-      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);   // ← AJOUT
-
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR); // ← AJOUT
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
       resolve({ texture, width: image.width, height: image.height });
     };
     image.onerror = () => console.error('Image introuvable :', src);
@@ -161,29 +148,33 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 
 // ------------------------------------------------------------
-// 5) RENDER
+// 5) RENDER (mis à jour pour lier la carte de déplacement)
 // ------------------------------------------------------------
-// ⚙️ INTENSITÉ DU WARP — modifie cette valeur pour ajuster l'effet :
-//   0.05 = très subtil
-//   0.10 = équilibré (valeur par défaut du shader de paniq)
-//   0.20 = fort
-//   0.30 = très marqué
-const WARP_STRENGTH = 0.1;
+const WARP_STRENGTH = 0.5; // ⚠️ Augmente cette valeur pour voir l'effet (0.1 → trop faible)
 
 function render(progress) {
   const from = slides[currentIndex];
   const to = slides[nextIndex];
-
+  
+  // Liaison de la texture "from"
   gl.activeTexture(gl.TEXTURE0);
   gl.bindTexture(gl.TEXTURE_2D, from.texture);
   gl.uniform1i(uFrom, 0);
 
+  // Liaison de la texture "to"
   gl.activeTexture(gl.TEXTURE1);
   gl.bindTexture(gl.TEXTURE_2D, to.texture);
   gl.uniform1i(uTo, 1);
 
+  // ⚠️ AJOUT : Liaison de la carte de déplacement sur l'unité TEXTURE2
+  if (dispTexture) {
+    gl.activeTexture(gl.TEXTURE2);
+    gl.bindTexture(gl.TEXTURE_2D, dispTexture.texture);
+    gl.uniform1i(uDisp, 2);
+  }
+
   gl.uniform1f(uProgress, progress);
-  gl.uniform1f(uStrength, WARP_STRENGTH);  // ← nouveau
+  gl.uniform1f(uStrength, WARP_STRENGTH);
   gl.uniform2fv(uFromScale, getCoverScale(from.width, from.height));
   gl.uniform2fv(uToScale, getCoverScale(to.width, to.height));
 
@@ -230,14 +221,26 @@ function updateCaptions(index) {
 }
 
 // ------------------------------------------------------------
-// 8) DÉMARRAGE (inchangé)
+// 8) DÉMARRAGE (mis à jour pour charger la carte de déplacement)
 // ------------------------------------------------------------
 async function init() {
   resizeCanvas();
-  slides = await Promise.all(slideSources.map(loadTexture));
+  
+  // Chargement des slides ET de la carte de déplacement en parallèle
+  const [loadedSlides, loadedDisp] = await Promise.all([
+    Promise.all(slideSources.map(loadTexture)),
+    loadTexture(displacementSource).catch(err => {
+      console.error("La carte de déplacement n'a pas pu être chargée.", err);
+      return null;
+    })
+  ]);
+  
+  slides = loadedSlides;
+  dispTexture = loadedDisp;
+  
   render(0);
   updateCaptions(currentIndex);
-  setInterval(() => goTo(1), 1000);
+  setInterval(() => goTo(1), 4000);
 }
 
 document.getElementById('heroNext').addEventListener('click', () => goTo(1));
